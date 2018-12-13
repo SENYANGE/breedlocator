@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.richardsenyange.breedlocator2">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <application
+
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/MyMaterialTheme">
+        <activity
+            android:name="com.example.richardsenyange.breedlocator2.SplashScreen"
+            android:configChanges="orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.richardsenyange.breedlocator2.SignUpActivity"
+            android:label="Create New Account" />
+        <activity
+            android:name="com.example.richardsenyange.breedlocator2.LoginActivity"
+            android:label="Login" />
+        <activity
+            android:name="com.example.richardsenyange.breedlocator2.ResetPasswordActivity"
+            android:label="Reset Password" />
+        <activity
+            android:name="com.example.richardsenyange.breedlocator2.UserCategoryActivity"
+            android:label="Select User" />
+
+        <service
+            android:name="com.example.richardsenyange.breedlocator2.TrackerService"
+            android:enabled="true"
+            android:exported="true" />
+        <service android:name="com.example.richardsenyange.breedlocator2.NotificationService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity android:name="com.example.richardsenyange.breedlocator2.TrackerActivity" />
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/. 
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity
+            android:name="com.example.richardsenyange.breedlocator2.BreedMapActivity"
+            android:label="@string/title_activity_accident_map" />
+        <activity
+            android:name="com.example.richardsenyange.breedlocator2.ReplyActivity"
+            android:excludeFromRecents="true"
+            android:label="@string/title_activity_notification"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.Dialog.custom"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity android:name="com.example.richardsenyange.breedlocator2.NearbyVet" />
+        <activity android:name="com.example.richardsenyange.breedlocator2.VetActivity" />
+        <activity
+            android:name="com.example.richardsenyange.breedlocator2.VictimActivity"
+            android:parentActivityName="com.example.richardsenyange.breedlocator2.UserCategoryActivity" />
+        <activity android:name="com.example.richardsenyange.breedlocator2.NotificationReply"></activity>
+    </application>
+
+</manifest>
